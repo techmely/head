@@ -29,10 +29,10 @@ export type Head = {
   priority?: number;
 };
 
-type HeadMetaAuthor = {
-  name: string;
-  url: string;
-};
+// type HeadMetaAuthor = {
+//   name: string;
+//   url: string;
+// };
 
 export type HeadMetaRobots = {
   index?: boolean;
@@ -51,70 +51,70 @@ export type HeadMetaRobots = {
   googleBot?: string | HeadMetaRobots;
 };
 
-interface HeadMetadata {
-  title?: string;
-  description?: string;
-  thumbnail?: string;
-  /**
-   * The robots setting for the document.
-   *
-   * @see https://developer.mozilla.org/docs/Glossary/Robots.txt
-   * @example
-   *
-   * { index: false, follow: false }
-   * <meta name="robots" content="noindex, nofollow" />
-   * ```
-   */
-  robots?: HeadMetaRobots;
-  /**
-   * @example
-   * { canonical: "https://example.com" }
-   * <link rel="canonical" href="https://example.com" />
-   */
-  canonical?: string;
-  /**
-   * <meta name="application-name" content="Techmely" />
-   */
-  applicationName?: string;
-  /**
-   * @example * <meta name="author" content="Techmely Team" />
-   * <link rel="author" href="https://techmely.com/about-us" />
-   */
-  authors?: HeadMetaAuthor | HeadMetaAuthor[];
-  /**
-   * @example * <meta name="generator" content="VikeJs" />
-   */
-  generator?: string;
-  /**
-   * @example <meta name="keywords" content="education, documents, blog, courses" />
-   * ```
-   */
-  keywords?: string | string[];
-  /**
-   * @example <meta name="creator" content="Techmely Team" />
-   */
-  creator?: string;
-  /**
-   * <meta name="publisher" content="Cloudflare" />
-   * ```
-   */
-  publisher?: string;
-  /**
-   * The category meta name property.
-   * @example
-   * "Education"
-   * <meta name="category" content="Education" />
-   */
-  category?: string;
-  /**
-   * The additional JSON LD
-   * @example
-   * <script type="application/ld+json">
-      {"@context": "http://schema.org"}
-     </script>
-   */
-  jsonLd?: string[];
-}
+// interface HeadMetadata {
+//   title?: string;
+//   description?: string;
+//   thumbnail?: string;
+//   /**
+//    * The robots setting for the document.
+//    *
+//    * @see https://developer.mozilla.org/docs/Glossary/Robots.txt
+//    * @example
+//    *
+//    * { index: false, follow: false }
+//    * <meta name="robots" content="noindex, nofollow" />
+//    * ```
+//    */
+//   robots?: HeadMetaRobots;
+//   /**
+//    * @example
+//    * { canonical: "https://example.com" }
+//    * <link rel="canonical" href="https://example.com" />
+//    */
+//   canonical?: string;
+//   /**
+//    * <meta name="application-name" content="Techmely" />
+//    */
+//   applicationName?: string;
+//   /**
+//    * @example * <meta name="author" content="Techmely Team" />
+//    * <link rel="author" href="https://techmely.com/about-us" />
+//    */
+//   authors?: HeadMetaAuthor | HeadMetaAuthor[];
+//   /**
+//    * @example * <meta name="generator" content="VikeJs" />
+//    */
+//   generator?: string;
+//   /**
+//    * @example <meta name="keywords" content="education, documents, blog, courses" />
+//    * ```
+//    */
+//   keywords?: string | string[];
+//   /**
+//    * @example <meta name="creator" content="Techmely Team" />
+//    */
+//   creator?: string;
+//   /**
+//    * <meta name="publisher" content="Cloudflare" />
+//    * ```
+//    */
+//   publisher?: string;
+//   /**
+//    * The category meta name property.
+//    * @example
+//    * "Education"
+//    * <meta name="category" content="Education" />
+//    */
+//   category?: string;
+//   /**
+//    * The additional JSON LD
+//    * @example
+//    * <script type="application/ld+json">
+//       {"@context": "http://schema.org"}
+//      </script>
+//    */
+//   jsonLd?: string[];
+// }
 
 export interface SchemaOrgProps {
   type?: string;
