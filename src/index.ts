@@ -1,8 +1,14 @@
 export * from "./types";
 export * from "./composeHead";
 
-export * from "./gen/common";
-export * from "./gen/color-scheme";
-export * from "./gen/favicon";
-export * from "./gen/og";
-export * from "./gen/twitter";
+export * from "./composer/common";
+export * from "./composer/color-scheme";
+export * from "./composer/favicon";
+export * from "./composer/og";
+export * from "./composer/twitter";
+
+export * from "./schema/article";
+export * from "./schema/blogPost";
+export * from "./schema/breadcrumb";
+export * from "./schema/course";
+export * from "./schema/organization";

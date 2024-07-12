@@ -1,11 +1,11 @@
 import { describe, it, expect } from "vitest";
 import type { Head } from "./types";
 import { composeHead } from "./composeHead";
-import { genColorSchemeHeads } from "./gen/color-scheme";
-import { genCommonHeads } from "./gen/common";
-import { genFaviconHeads } from "./gen/favicon";
-import { genOgHeads } from "./gen/og";
-import { genTwitterHeads } from "./gen/twitter";
+import { defineColorSchemeHeads } from "./composer/color-scheme";
+import { defineCommonHeads } from "./composer/common";
+import { defineFaviconHeads } from "./composer/favicon";
+import { defineOgHeads } from "./composer/og";
+import { defineTwitterHeads } from "./composer/twitter";
 
 describe("Compose heads", () => {
   it("Basic heads", () => {
@@ -41,17 +41,17 @@ describe("Compose heads", () => {
   });
 
   it("Compose every gen head", () => {
-    const colorSchemeHeads = genColorSchemeHeads({
+    const colorSchemeHeads = defineColorSchemeHeads({
       supportedColorSchemes: "dark light",
       colorScheme: "dark",
       themeColor: "#00000",
     });
-    const commonHeads = genCommonHeads({
+    const commonHeads = defineCommonHeads({
       viewport:
         "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
       acceptCh: "Accept, DPR, Viewport-Width, ECT, Width, Save-Data",
     });
-    const faviconHeas = genFaviconHeads({
+    const faviconHeas = defineFaviconHeads({
       appleTouchIcon: "/favicons/apple-touch-icon.png",
       icon: "/favicons/favicon.ico",
       icon16: "/favicons/favicon-16x16.png",
@@ -60,7 +60,7 @@ describe("Compose heads", () => {
       maskIcon: "/favicons/favicon-32x32.svg",
       msapplicationConfig: "/favicons/browserconfig.xml",
     });
-    const ogHeads = genOgHeads({
+    const ogHeads = defineOgHeads({
       title: "Title",
       description: "Description",
       canonical: "https://techmely.com",
@@ -68,7 +68,7 @@ describe("Compose heads", () => {
       thumbnail: "https://techmely.com/thumbnail.webp",
     });
 
-    const twitterHeads = genTwitterHeads({
+    const twitterHeads = defineTwitterHeads({
       title: "Title",
       description: "Description",
       siteContent: "@techmely",
