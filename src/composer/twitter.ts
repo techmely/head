@@ -7,7 +7,7 @@ type Props = {
   thumbnail: string;
 };
 
-export function genTwitterHeads(props: Props) {
+export function defineTwitterHeads(props: Props) {
   const { siteContent, title, description, thumbnail } = props;
   const heads: Head[] = [];
   heads.push(

@@ -10,7 +10,7 @@ type Props = {
   manifest: string;
 };
 
-export function genFaviconHeads(props: Props) {
+export function defineFaviconHeads(props: Props) {
   const {
     icon,
     appleTouchIcon,

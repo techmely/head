@@ -6,7 +6,7 @@ type Props = {
   acceptCh: string;
 };
 
-export function genCommonHeads(props: Props) {
+export function defineCommonHeads(props: Props) {
   if (!props) throw new Error("Must have full props");
   const { viewport, charset = "UTF-8", acceptCh } = props;
   const heads: Head[] = [];

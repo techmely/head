@@ -8,7 +8,7 @@ type OgProps = {
   siteName: string;
 };
 
-export function genOgHeads(props: OgProps) {
+export function defineOgHeads(props: OgProps) {
   if (!props) throw new Error("Must have full props");
   const { canonical, title, description, thumbnail, siteName } = props;
   const heads: Head[] = [];

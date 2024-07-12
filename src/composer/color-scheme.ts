@@ -6,7 +6,7 @@ type Props = {
   themeColor: string;
 };
 
-export function genColorSchemeHeads(props: Props) {
+export function defineColorSchemeHeads(props: Props) {
   if (!props) throw new Error("Must have full props");
   const { supportedColorSchemes, colorScheme, themeColor } = props;
   const heads: Head[] = [];
