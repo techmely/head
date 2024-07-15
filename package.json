@@ -12,22 +12,17 @@
     "url": "git+https://github.com/techmely/head.git#main"
   },
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/src/index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
-    "test": "NODE_ENV=test vitest run --passWithNoTests --isolate",
-    "build": "bun build ./src/index.ts --target bun --outdir dist --sourcemap=linked && bun run build:types",
-    "build:types": "tsc --emitDeclarationOnly --outDir dist"
-  },
-  "files": [
-    "dist",
-    "README.md"
-  ],
-  "exports": {
-    ".": {
-      "default": "./dist/index.js",
-      "types": "./dist/src/index.d.ts"
-    }
+    "lint.format": "bunx @biomejs/biome check --write .",
+    "clean": "rm -f dist node_modules",
+    "test.unit": "vitest --passWithNoTests",
+    "test.unit.run": "NODE_ENV=test vitest run --passWithNoTests --isolate",
+    "test.unit.coverage": "vitest --coverage",
+    "build": "cross-env NODE_ENV=production bun run ./build.ts",
+    "release": "bun run ./release.ts",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
@@ -35,10 +30,15 @@
     "@changesets/cli": "2.27.7",
     "@techmely/types": "1.9.0",
     "@types/bun": "1.1.6",
+    "@types/node": "20.14.10",
+    "cross-env": "7.0.3",
+    "husky": "9.0.11",
+    "npm-check-updates": "16.14.20",
     "@vitest/coverage-v8": "2.0.2",
     "bun": "1.1.18",
     "typescript": "5.5.3",
-    "vitest": "2.0.2"
+    "vitest": "2.0.2",
+    "zx": "8.1.4"
   },
   "publishConfig": {
     "access": "public",
