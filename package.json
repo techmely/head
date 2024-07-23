@@ -1,7 +1,7 @@
 {
   "name": "@techmely/head",
   "description": "Head manager SSR",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "private": false,
   "license": "MIT",
   "homepage": "https://techmely.com/libraries/head",
@@ -23,6 +23,9 @@
     "build": "cross-env NODE_ENV=production bun run ./build.ts",
     "release": "bun run ./release.ts",
     "prepare": "husky"
+  },
+  "dependencies": {
+    "@techmely/es-toolkit": "^1.0.2"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
