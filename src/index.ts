@@ -1,5 +1,6 @@
 export * from "./types";
 export * from "./composeHead";
+export * from "./composeHeadMetadata";
 
 export * from "./composer/common";
 export * from "./composer/color-scheme";

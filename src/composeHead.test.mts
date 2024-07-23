@@ -30,7 +30,7 @@ describe("Compose heads", () => {
           name: "msapplication-config",
           content: "msapplicationConfig",
         },
-      },
+      }
     );
     const head = composeHead(heads);
     expect(head).toStrictEqual([
@@ -80,7 +80,7 @@ describe("Compose heads", () => {
       commonHeads,
       faviconHeas,
       ogHeads,
-      twitterHeads,
+      twitterHeads
     );
 
     const headHtml = composeHead(heads);
@@ -91,7 +91,7 @@ describe("Compose heads", () => {
       '<meta name="google" content="notranslate" />',
       '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />',
       '<meta charset="UTF-8" />',
-      '<meta httpEquiv="Accept-CH" content="Accept, DPR, Viewport-Width, ECT, Width, Save-Data" />',
+      '<meta http-equiv="Accept-CH" content="Accept, DPR, Viewport-Width, ECT, Width, Save-Data" />',
       '<link id="favicon" rel="shortcut icon" href="/favicons/favicon.ico" />',
       '<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />',
       '<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />',

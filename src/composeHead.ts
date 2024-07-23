@@ -1,23 +1,18 @@
 import type { Head } from "./types";
-
+import { kebabize } from "@techmely/es-toolkit/kebabize";
 const importRe = /@import/;
 
 export function composeHead(heads: Head[]) {
   // Sort head - Prefer follow CapoJs
   const headHtml = heads
     .map((h) => {
-      if (h.script && h.script?.async) {
+      if (h.script?.async) {
         h.priority = 30;
       }
-      if (
-        h.style &&
-        h.style.innerHTML &&
-        importRe.test(h.style.innerHTML as string)
-      ) {
+      if (h.style?.innerHTML && importRe.test(h.style.innerHTML as string)) {
         h.priority = 40;
       }
       if (
-        h.script &&
         h.script?.src &&
         !h.script?.defer &&
         !h.script?.async &&
@@ -35,7 +30,7 @@ export function composeHead(heads: Head[]) {
       ) {
         h.priority = 70;
       }
-      if (h.script && h.script.defer && h.script.src && !h.script.async) {
+      if (h.script?.defer && h.script.src && !h.script.async) {
         h.priority = 80;
       }
       if (
@@ -47,8 +42,7 @@ export function composeHead(heads: Head[]) {
       return h;
     })
     .sort((a, b) => a.priority || 0 - (b.priority || 0))
-    .map(convertHeadToHtml)
-    .flat()
+    .flatMap(convertHeadToHtml)
     .filter(Boolean);
 
   return headHtml;
@@ -56,7 +50,7 @@ export function composeHead(heads: Head[]) {
 
 function convertHeadToHtml(head: Head) {
   const headKeys = Object.keys(head).filter(
-    (k) => k !== "priority",
+    (k) => k !== "priority"
   ) as (keyof Head)[];
   const headHtml: string[] = [];
   if (headKeys.length === 0) return [];
@@ -66,7 +60,7 @@ function convertHeadToHtml(head: Head) {
     } else {
       // @ts-expect-error Ignore type check
       const attributes = Object.entries(head[key])
-        .map(([key, value]) => `${key}="${value}"`)
+        .map(([key, value]) => `${kebabize(key)}="${value}"`)
         .join(" ");
       headHtml.push(`<${key} ${attributes} />`);
     }

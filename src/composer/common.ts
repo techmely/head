@@ -16,7 +16,7 @@ export function defineCommonHeads(props: Props) {
     },
     { meta: { name: "viewport", content: viewport } },
     { meta: { charset } },
-    { meta: { httpEquiv: "Accept-CH", content: acceptCh } },
+    { meta: { httpEquiv: "Accept-CH", content: acceptCh } }
   );
 
   return heads;
