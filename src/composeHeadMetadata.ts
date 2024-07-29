@@ -6,10 +6,7 @@ import { defineOgHeads } from "./composer/og";
 import { defineTwitterHeads } from "./composer/twitter";
 import type { Head, HeadMetadata } from "./types";
 
-export function composeHeadMetadata(
-  metadata: HeadMetadata,
-  initialHeads: Head[] = []
-): string[] {
+export function composeHeadMetadata(metadata: HeadMetadata, initialHeads: Head[] = []): string[] {
   let heads: Head[] = initialHeads;
   const {
     color,
@@ -31,8 +28,8 @@ export function composeHeadMetadata(
     heads = heads.concat(commonHeads);
   }
   if (favicon) {
-    const faviconHeas = defineFaviconHeads(favicon);
-    heads = heads.concat(faviconHeas);
+    const faviconHeads = defineFaviconHeads(favicon);
+    heads = heads.concat(faviconHeads);
   }
 
   const ogHeads = defineOgHeads({
@@ -51,5 +48,6 @@ export function composeHeadMetadata(
   });
 
   heads.concat(ogHeads, twitterHeads);
+  console.log("composeHeadMetadata  👻  heads:", heads);
   return composeHead(heads);
 }

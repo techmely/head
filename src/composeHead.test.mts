@@ -1,11 +1,11 @@
-import { describe, it, expect } from "vitest";
-import type { Head } from "./types";
+import { describe, expect, it } from "vitest";
 import { composeHead } from "./composeHead";
 import { defineColorSchemeHeads } from "./composer/color-scheme";
 import { defineCommonHeads } from "./composer/common";
 import { defineFaviconHeads } from "./composer/favicon";
 import { defineOgHeads } from "./composer/og";
 import { defineTwitterHeads } from "./composer/twitter";
+import type { Head } from "./types";
 
 describe("Compose heads", () => {
   it("Basic heads", () => {
@@ -30,7 +30,7 @@ describe("Compose heads", () => {
           name: "msapplication-config",
           content: "msapplicationConfig",
         },
-      }
+      },
     );
     const head = composeHead(heads);
     expect(head).toStrictEqual([
@@ -47,8 +47,7 @@ describe("Compose heads", () => {
       themeColor: "#00000",
     });
     const commonHeads = defineCommonHeads({
-      viewport:
-        "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
+      viewport: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
       acceptCh: "Accept, DPR, Viewport-Width, ECT, Width, Save-Data",
     });
     const faviconHeas = defineFaviconHeads({
@@ -80,7 +79,7 @@ describe("Compose heads", () => {
       commonHeads,
       faviconHeas,
       ogHeads,
-      twitterHeads
+      twitterHeads,
     );
 
     const headHtml = composeHead(heads);
@@ -99,6 +98,7 @@ describe("Compose heads", () => {
       '<link rel="mask-icon" color="#21C3A9" href="/favicons/favicon-32x32.svg" />',
       '<link id="manifest" rel="manifest" href="/favicons/site.webmanifest" />',
       '<meta name="msapplication-config" content="/favicons/browserconfig.xml" />',
+      "<title>Title</title>",
       '<meta property="og:type" content="website" />',
       '<meta property="og:url" content="https://techmely.com" />',
       '<meta property="og:site_name" content="Techmely" />',

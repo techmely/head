@@ -1,5 +1,5 @@
-import type { Head } from "./types";
 import { kebabize } from "@techmely/es-toolkit/kebabize";
+import type { Head } from "./types";
 const importRe = /@import/;
 
 export function composeHead(heads: Head[]) {
@@ -24,19 +24,13 @@ export function composeHead(heads: Head[]) {
       if ((h.link && h.link?.rel === "stylesheet") || h.style) {
         h.priority = 60;
       }
-      if (
-        h.link &&
-        ["preload", "modulepreload"].includes(h.link.rel as string)
-      ) {
+      if (h.link && ["preload", "modulepreload"].includes(h.link.rel as string)) {
         h.priority = 70;
       }
       if (h.script?.defer && h.script.src && !h.script.async) {
         h.priority = 80;
       }
-      if (
-        h.link &&
-        ["prefetch", "dns-prefetch", "prerender"].includes(h.link.rel as string)
-      ) {
+      if (h.link && ["prefetch", "dns-prefetch", "prerender"].includes(h.link.rel as string)) {
         h.priority = 90;
       }
       return h;
@@ -49,9 +43,7 @@ export function composeHead(heads: Head[]) {
 }
 
 function convertHeadToHtml(head: Head) {
-  const headKeys = Object.keys(head).filter(
-    (k) => k !== "priority"
-  ) as (keyof Head)[];
+  const headKeys = Object.keys(head).filter((k) => k !== "priority") as (keyof Head)[];
   const headHtml: string[] = [];
   if (headKeys.length === 0) return [];
   for (const key of headKeys) {

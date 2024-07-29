@@ -13,6 +13,7 @@ export function defineOgHeads(props: OgProps) {
   const { canonical, title, description, thumbnail, siteName } = props;
   const heads: Head[] = [];
   heads.push(
+    { title },
     { meta: { property: "og:type", content: "website" } },
     { meta: { property: "og:url", content: canonical } },
     { meta: { property: "og:site_name", content: siteName } },
