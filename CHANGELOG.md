@@ -1,5 +1,11 @@
 # @techmely/head
 
+## 0.2.1
+
+### Patch Changes
+
+- Add missing title in compose heads
+
 ## 0.2.0
 
 ### Minor Changes
